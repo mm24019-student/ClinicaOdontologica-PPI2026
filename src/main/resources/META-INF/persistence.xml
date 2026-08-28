@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+  <persistence-unit name="Galeno-PU" transaction-type="JTA">
+    <jta-data-source>jdbc/pgdb</jta-data-source>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.ExamenResultado</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.ProcedimientoPaso</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.Clinica</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.ConsultaProcedimientoPaso</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.ExamenTipoExamen</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.Procedimiento</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.PersonaRol</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.ProcedimientoPasoExamen</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.Persona</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.Consulta</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.TipoExamen</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.MedioContacto</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.TipoMedioContacto</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.Documento</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.Rol</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.OrdenExamen</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.Examen</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.TipoDocumento</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.ConsultaProcedimiento</class>
+    <class>sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.ProcedimientoPasoSecuencia</class>
+    <properties>
+      <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+    </properties>
+  </persistence-unit>
+</persistence>
