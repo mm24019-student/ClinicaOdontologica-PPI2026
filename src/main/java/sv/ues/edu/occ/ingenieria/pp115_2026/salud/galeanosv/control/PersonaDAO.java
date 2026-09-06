@@ -9,12 +9,10 @@ import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.TipoMedioContacto;
+import sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.Persona;
 
 /**
  *
@@ -22,23 +20,23 @@ import sv.ues.edu.occ.ingenieria.pp115_2026.salud.galeanosv.entity.TipoMedioCont
  */
 @Stateless
 @LocalBean
-public class TipoMedioContactoDAO extends DefaultDAO<TipoMedioContacto> {
+public class PersonaDAO extends DefaultDAO<Persona>{
     
-  
-      @PersistenceContext(unitName = "Galeno-PU")
-      EntityManager em;
-
+    
+     @PersistenceContext(unitName="Galeno-PU")
+    EntityManager em;
+    
     @Override
     public EntityManager getEntityManager() {
-     
-        return em;
+     return em;
     }
-  
+    
+    
      @Override
-    public List<TipoMedioContacto> findRange(int first, int max) throws IllegalArgumentException, IllegalStateException {
+    public List<Persona> findRange(int first, int max) throws IllegalArgumentException, IllegalStateException {
         if (first >= 0 && max > 0) {
             try {
-                TypedQuery<TipoMedioContacto> q = em.createNamedQuery("TipoMedioContacto.findAll", TipoMedioContacto.class);
+                TypedQuery<Persona> q = em.createNamedQuery("Persona.findAll", Persona.class);
                 q.setFirstResult(first);
                 q.setMaxResults(max);
                 return q.getResultList();
@@ -49,5 +47,4 @@ public class TipoMedioContactoDAO extends DefaultDAO<TipoMedioContacto> {
         }
         throw new IllegalArgumentException("first debe ser >= 0 y max debe ser > 0");
     }
-    
 }

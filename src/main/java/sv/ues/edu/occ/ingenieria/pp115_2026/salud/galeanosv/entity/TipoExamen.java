@@ -8,6 +8,7 @@ import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
@@ -18,7 +19,7 @@ import java.util.UUID;
  * @author oscar
  */
 @Entity
-@Table(name = "tipo_examen", catalog = "GalenoSV", schema = "public")
+@Table(name = "tipo_examen", schema = "public")
 @NamedQueries({
     @NamedQuery(name = "TipoExamen.findAll", query = "SELECT t FROM TipoExamen t"),
     @NamedQuery(name = "TipoExamen.findByNombre", query = "SELECT t FROM TipoExamen t WHERE t.nombre = :nombre"),
@@ -38,6 +39,7 @@ public class TipoExamen implements Serializable {
     private Boolean activo;
     @Size(max = 2147483647)
     @Column(name = "observaciones")
+    @NotBlank
     private String observaciones;
     @OneToMany(mappedBy = "idTipoExamen", fetch = FetchType.LAZY)
     private List<ExamenTipoExamen> examenTipoExamenList;

@@ -29,7 +29,7 @@ import java.util.UUID;
  * @author oscar
  */
 @Entity
-@Table(name = "consulta_procedimiento_paso", catalog = "GalenoSV", schema = "public")
+@Table(name = "consulta_procedimiento_paso", schema = "public")
 @NamedQueries({
     @NamedQuery(name = "ConsultaProcedimientoPaso.findAll", query = "SELECT c FROM ConsultaProcedimientoPaso c"),
     @NamedQuery(name = "ConsultaProcedimientoPaso.findByFechaInicio", query = "SELECT c FROM ConsultaProcedimientoPaso c WHERE c.fechaInicio = :fechaInicio"),

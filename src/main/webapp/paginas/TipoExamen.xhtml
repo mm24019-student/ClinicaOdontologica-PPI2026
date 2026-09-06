@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>TipoExamen</title>
+    </h:head>
+    <h:body>
+        <style>
+            #tblTipoExamen table{
+                border:solid black;
+            }
+            #tblTipoExamen tr td{
+                border: solid cadetblue;
+            }
+        </style>
+        <h:panelGrid>
+             <h2>Tipo Examen</h2>
+        <h:form>
+                <h:dataTable value="#{tipoExamenModel.registros}" var="r" id="tblTipoExamen">
+                    <h:column>
+                        <h:outputText value="#{r.idTipoExamen}" />
+                        <f:facet name="header">
+                            ID
+                        </f:facet>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{r.nombre}"/>
+                        <f:facet name="header">
+                            Nombre
+                        </f:facet>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{r.activo?'ACTIVO':'INACTIVO'}"/>
+                        <f:facet name="header">
+                            Estado
+                        </f:facet>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{r.observaciones}"/>
+                        <f:facet name="header">
+                            Observaciones
+                        </f:facet>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="Seleccionar" actionListener="#{tipoExamenModel.btnSeleccionarRegistro(r.idTipoExamen)}"/>
+                        <f:facet name="header">
+                            Accion
+                        </f:facet>
+                    </h:column>
+                </h:dataTable>   
+                <h:commandButton value="Nuevo" actionListener="#{tipoExamenModel.btnNuevoHandler}"/>
+                <h:commandButton value="Cancelar" actionListener="#{tipoExamenModel.btnCancelar()}"/>
+        </h:form>
+        <h:messages globalOnly="false" showDetail="true" showSummary="true"/>
+        <h2>Mantenimiento Tipo de Examen</h2>
+       
+            <h:panelGroup>
+            <h:form id="TipoExamen" rendered="#{tipoExamenModel.estado!='NINGUNO'}">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="ID" for="txtId"/>
+                    <h:inputText id="txtId" size="70" value="#{tipoExamenModel.registro.idTipoExamen}"/>
+                    <h:outputLabel value="Nombre" for="txNombre"/>
+                    <h:inputText id="txtNombre" size="70" value="#{tipoExamenModel.registro.nombre}"/>
+                    <h:outputLabel for="chkActivo" value="Activo"/>
+                    <h:selectBooleanCheckbox id="chkActivo" value="#{tipoExamenModel.registro.activo}"/>
+                    <h:outputLabel for="txtObservaciones" value="Observaciones"/>
+                    <h:inputTextarea id="txtObservaciones" rows="3" cols="70" value="#{tipoExamenModel.registro.observaciones}"/>
+                </h:panelGrid>
+                <h:commandButton value="Crear" actionListener="#{tipoExamenModel.btnCrearhandler}" rendered="#{tipoExamenModel.estado=='CREAR'}"/>
+                <h:commandButton value="Actualizar" actionListener="#{tipoExamenModel.btnModificarHandler}" rendered="#{tipoExamenModel.estado=='MODIFICAR'}"/>
+                <h:commandButton  value="Eliminar" actionListener="#{tipoExamenModel.btnEliminarHandler(r.idTipoExamen)}" rendered="#{tipoExamenModel.estado=='MODIFICAR'}"/>
+            </h:form>
+        </h:panelGroup>
+        </h:panelGrid>
+       
+        
+    </h:body>
+</html>

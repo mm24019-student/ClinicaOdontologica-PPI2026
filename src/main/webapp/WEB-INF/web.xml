@@ -8,4 +8,17 @@
             30
         </session-timeout>
     </session-config>
+    <!-- 1. Definición de FacesServlet -->
+    <servlet>
+        <servlet-name>Jakarta Server Faces</servlet-name>
+        <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- 2. Mapeo del Servlet (Extensiones comunes) -->
+    <servlet-mapping>
+        <servlet-name>Jakarta Server Faces</servlet-name>
+        <!-- Permite acceder usando .xhtml o la ruta /faces/* -->
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -22,7 +22,7 @@ import java.util.UUID;
  * @author oscar
  */
 @Entity
-@Table(name = "rol", catalog = "GalenoSV", schema = "public")
+@Table(name = "rol", schema = "public")
 @NamedQueries({
     @NamedQuery(name = "Rol.findAll", query = "SELECT r FROM Rol r"),
     @NamedQuery(name = "Rol.findByNombre", query = "SELECT r FROM Rol r WHERE r.nombre = :nombre"),
